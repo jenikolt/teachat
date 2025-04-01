@@ -1,0 +1,9 @@
+{
+  "name": "teachat_frontend_next",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/frontent_next",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project teachat_frontend_next --web",
+  "targets": {}
+}
