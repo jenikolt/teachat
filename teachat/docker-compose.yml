@@ -1,0 +1,40 @@
+version: "3.0"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: .deploy/docker/Dockerfile
+    image: local/${PROJECT_NAME}/app:${DOCKER_BUILD_TAG}
+    environment:
+      - DB_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${DB_HOST}:${DB_PORT}/${POSTGRES_DB}
+      - JWT_SECRET
+      - JWT_ACCESS_SECRET
+      - JWT_REFRESH_SECRET
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - ${APP_EXT_PORT}:${APP_PORT}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: node ./dist/apps/backend/main.js
+    restart: always
+
+  postgres:
+    image: postgres:15.1
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    healthcheck:
+      test: pg_isready -U ${POSTGRES_USER}
+      interval: 5s
+      retries: 5
+    ports:
+      - ${POSTGRES_EXT_PORT}:5432
+    volumes:
+      - ${DOCKER_SHARED_DIR}/postgres:/var/lib/postgresql/data
+    restart: always
+
