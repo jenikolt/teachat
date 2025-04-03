@@ -1,5 +1,5 @@
 {
-  "name": "teachat_back",
+  "name": "backend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/backend/src",
   "projectType": "application",
@@ -22,15 +22,15 @@
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "teachat_back:build",
+        "buildTarget": "backend:build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "teachat_back:build:development"
+          "buildTarget": "backend:build:development"
         },
         "production": {
-          "buildTarget": "teachat_back:build:production"
+          "buildTarget": "backend:build:production"
         }
       }
     },
@@ -39,19 +39,18 @@
         "passWithNoTests": true
       }
     },
-    "migration:gen": {
+    "migration:generate": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "ts-node --project tsconfig.app.json ../../node_modules/typeorm/cli migration:generate src/migrations/{args.name} --pretty -d src/database/datasource.ts",
+        "command": "ts-node --project tsconfig.app.json ../../node_modules/typeorm/cli -d src/ormconfig.ts migration:generate",
         "forwardAllArgs": true,
         "cwd": "{projectRoot}"
       }
     },
-
     "migration:create": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "../../node_modules/.bin/typeorm migration:create src/migrations/{args.name}",
+        "command": "ts-node --project tsconfig.app.json ../../node_modules/typeorm/cli -d src/ormconfig.ts migration:create",
         "forwardAllArgs": true,
         "cwd": "{projectRoot}"
       }
@@ -59,7 +58,7 @@
     "migration:run": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "ts-node --project tsconfig.app.json ../../node_modules/typeorm/cli migration:run -d src/database/datasource.ts",
+        "command": "ts-node --project tsconfig.app.json ../../node_modules/typeorm/cli migration:run -d src/ormconfig.ts",
         "cwd": "{projectRoot}"
       }
     }

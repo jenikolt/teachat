@@ -4,6 +4,7 @@
 dist
 tmp
 out-tsc
+.deploy/docker/local-data/*
 
 # dependencies
 node_modules
@@ -44,3 +45,6 @@ Thumbs.db
 # Next.js
 .next
 out
+
+#logs
+*.log

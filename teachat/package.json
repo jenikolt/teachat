@@ -2,7 +2,18 @@
   "name": "@teachat/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test",
+    "format": "prettier --write \"apps/**/*.ts\"",
+    "start:backend:dev": "nx run backend:serve:development",
+    "build:backend": "nx run backend:build:production",
+    "db:migration:run": "nx migration:run backend",
+    "db:migration:generate": "nx migration:generate backend",
+    "db:migration:create": "nx migration:create backend",
+    "postinstall": "mkdir -p .nx"
+  },
   "private": true,
   "devDependencies": {
     "@eslint/compat": "^1.1.1",
@@ -24,7 +35,7 @@
     "@nx/workspace": "20.7.0",
     "@playwright/test": "^1.36.0",
     "@swc-node/register": "~1.9.1",
-    "@swc/cli": "~0.3.12",
+    "@swc/cli": "^0.6.0",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
     "@testing-library/dom": "10.4.0",
@@ -59,14 +70,28 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@nestjs/common": "^10.0.2",
-    "@nestjs/core": "^10.0.2",
-    "@nestjs/platform-express": "^10.0.2",
+    "@nestjs/common": "^11.0.1",
+    "@nestjs/config": "^4.0.1",
+    "@nestjs/core": "^11.0.1",
+    "@nestjs/jwt": "^11.0.0",
+    "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/platform-socket.io": "^11.0.12",
+    "@nestjs/swagger": "^11.1.0",
+    "@nestjs/typeorm": "^11.0.0",
+    "@nestjs/websockets": "^11.0.12",
+    "argon2": "^0.41.1",
     "axios": "^1.6.0",
-    "next": "~15.1.4",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "dotenv": "^16.4.7",
+    "next": "^15.2.4",
+    "pg": "^8.14.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.0"
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "typeorm": "^0.3.21",
+    "typeorm-extension": "^3.7.0",
+    "typeorm-naming-strategies": "^4.1.0"
   }
 }

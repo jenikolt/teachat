@@ -1,5 +1,5 @@
 export default {
-  displayName: 'teachat_back',
+  displayName: 'backend',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {
