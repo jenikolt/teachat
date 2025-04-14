@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx run teachat_back:build:development",
+    "startTime": "2025-04-01T14:25:48.164Z",
+    "endTime": "2025-04-01T14:25:48.191Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "teachat_back:build:development",
+      "target": "build",
+      "projectName": "teachat_back",
+      "hash": "14328396683994779542",
+      "startTime": "2025-04-01T14:25:48.174Z",
+      "endTime": "2025-04-01T14:25:48.190Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    }
+  ]
+}

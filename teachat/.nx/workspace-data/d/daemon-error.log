@@ -1,0 +1,26 @@
+Daemon process terminated and closed the connection
+
+Messages from the log:
+    at startServer (g:\repos\teachat\teachat\node_modules\nx\src\daemon\server\server.js:366:12)
+    at async g:\repos\teachat\teachat\node_modules\nx\src\daemon\server\start.js:8:9
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1948:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '\\\\.\\pipe\\nx\\C:\\Users\\admin\\AppData\\Local\\Temp\\9d2cc4576a7c2a7698fe\\d.sock',
+  port: -1
+}
+
+Node.js v22.12.0
+[NX v20.7.0 Daemon Server] - 2025-04-01T14:13:25.893Z - Closed a connection. Number of open connections: 4
+[NX v20.7.0 Daemon Server] - 2025-04-01T14:13:25.893Z - Closed a connection. Number of open connections: 3
+[NX v20.7.0 Daemon Server] - 2025-04-01T14:13:25.893Z - Closed a connection. Number of open connections: 2
+[NX v20.7.0 Daemon Server] - 2025-04-01T14:13:25.893Z - Closed a connection. Number of open connections: 1
+[NX v20.7.0 Daemon Server] - 2025-04-01T14:13:25.893Z - Closed a connection. Number of open connections: 0
+[NX v20.7.0 Daemon Server] - 2025-04-01T14:13:25.894Z - [WATCHER]: Stopping the watcher for G:\repos\teachat\teachat (sources)
+
+
+
+More information: g:\repos\teachat\teachat\.nx\workspace-data\d\daemon.log
